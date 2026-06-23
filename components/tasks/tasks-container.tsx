@@ -4,7 +4,7 @@ export function TasksContainer() {
   return (
     <div className="flex flex-col gap-2">
       <div className="flex items-center justify-between">
-        <div className="text-2xl font-bold">
+        <div className="text-lg font-bold">
           <h1> My tasks </h1>
         </div>
 

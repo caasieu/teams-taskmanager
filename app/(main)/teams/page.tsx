@@ -3,7 +3,7 @@ import { TeamsContainer } from "@/components/teams/teams-container";
 
 export default function TeamsPage() {
   return (
-    <div className="bg-red-500 flex flex-col p-6 gap-2">
+    <div className="flex flex-col p-6 gap-4">
       <TeamsContainer />
       <div />
       <TasksContainer />
