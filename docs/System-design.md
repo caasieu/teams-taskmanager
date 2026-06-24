@@ -92,3 +92,6 @@ Goal: Allow teams to manage sprints, tasks, and agile workflows.
 - A sprint cannot exist without a team.
 - A task cannot exist without a sprint.
 
+See:
+
+/diagrams/infrastructure.png
