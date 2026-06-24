@@ -1,6 +1,6 @@
 # Database Schema
 
-## Overview
+### Overview
 
 The Scrum Sprint Manager stores information about:
 
@@ -9,7 +9,7 @@ The Scrum Sprint Manager stores information about:
 - Team Memberships
 - Tasks
 
-## Entity Relationship Diagram
+### Entity Relationship Diagram
 
 See:
 

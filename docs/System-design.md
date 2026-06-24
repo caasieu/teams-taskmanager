@@ -94,4 +94,4 @@ Goal: Allow teams to manage sprints, tasks, and agile workflows.
 
 See:
 
-/diagrams/infrastructure.png
+/diagrams/architecture.png
