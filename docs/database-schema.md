@@ -15,3 +15,7 @@ See:
 
 /diagrams/erd.png
 
+### Database Schema
+
+<!--- use Prisma as the shource of truth -->
+
