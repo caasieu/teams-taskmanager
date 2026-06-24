@@ -1,0 +1,21 @@
+openapi: 3.1.0
+
+info:
+  title: Scrum Sprintmanager API
+  version: 1.0.0
+
+paths:
+  /api/teams:
+    get:
+      summary: Get Teams 
+
+    post:
+      summary: Create Teams
+  
+  /api/tasks:
+    get:
+      summary: Get Tasks 
+    
+
+    post:
+      summary: Create Tasks
