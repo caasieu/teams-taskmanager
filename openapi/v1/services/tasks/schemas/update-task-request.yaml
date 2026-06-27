@@ -1,0 +1,18 @@
+type: object
+
+properties:
+
+  title:
+    type: string
+    minLength: 3
+    maxLength: 100
+
+  description:
+    type: string
+
+  priority:
+    $ref: "../../../components/schemas/task-priority.yaml"
+
+  dueDate:
+    type: string
+    format: date

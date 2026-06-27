@@ -1,0 +1,22 @@
+type: object
+description: Structure of user credentials used to authenticate. 
+
+required: 
+  - identifier 
+  - password
+      
+properties:
+  
+  identifier:
+    type: string 
+    description: The user's email address or username.
+
+  password:
+    type: string 
+    format: password
+    description: The user's password.
+
+example:
+  identifier: johndoe1@gmail.com
+  password: "mypassword!23"
+

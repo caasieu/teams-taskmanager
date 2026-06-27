@@ -1,0 +1,14 @@
+type: object
+
+required:
+  - userId
+  - role
+
+properties:
+
+  userId:
+    type: string
+    format: uuid
+
+  role:
+    $ref: "../../../components/schemas/user-role.yaml"

@@ -1,0 +1,27 @@
+# simple admin listing (scrum-sprintmanager)
+
+get:
+  summary: List all users
+
+  operationId: listUsers
+
+  security:
+    - bearerAuth: []
+
+  tags:
+    - Users
+
+  responses:
+
+    "200":
+      description: List of users
+
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../schemas/user.yaml"
+
+    "401":
+      $ref: "../../../components/responses/unauthorized.yaml"

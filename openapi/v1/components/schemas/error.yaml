@@ -1,0 +1,21 @@
+type: object
+
+description: Standard error response format.
+
+required:
+  - message
+
+properties:
+
+  message:
+    type: string
+    description: Human-readable error message.
+
+  code:
+    type: string
+    description: Machine-readable error code.
+
+  details:
+    type: object
+    additionalProperties: true
+    description: Optional extra debugging information.

@@ -1,0 +1,58 @@
+get:
+  summary: List sprints 
+  operationId: listSprints
+
+  security:
+    - bearerAuth: []
+
+  tags:
+    - Sprints
+
+  parameters:
+
+    - name: teamId
+      in: query
+      required: false
+      schema:
+        type: string
+        format: uuid
+
+  responses:
+    "200":
+      description: List of sprints
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../schemas/sprint.yaml"
+
+    "401":
+      $ref: "../../../components/responses/unauthorized.yaml"
+
+post:
+  summary: Create sprint
+
+  operationId: createSprint
+
+  security:
+    - bearerAuth: []
+
+  tags:
+    - Sprints
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/create-sprint-request.yaml"
+
+  responses:
+
+    "201":
+      description: Sprint created
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/sprint.yaml"

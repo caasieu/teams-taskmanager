@@ -1,0 +1,15 @@
+type: object
+
+required:
+  - name
+  - teamId
+
+properties:
+
+  name:
+    type: string
+    minLength: 3
+
+  teamId:
+    type: string
+    format: uuid

@@ -1,0 +1,10 @@
+type: string
+
+description: Task status within the system.
+
+enum:
+  - TODO
+  - IN_PROGRESS
+  - DONE
+
+example: TODO

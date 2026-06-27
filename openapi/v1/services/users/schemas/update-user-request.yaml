@@ -1,0 +1,14 @@
+type: object
+
+description: Fields allowed when updating a user profile.
+
+properties:
+
+  username:
+    type: string
+    minLength: 3
+    maxLength: 30
+
+  email:
+    type: string
+    format: email

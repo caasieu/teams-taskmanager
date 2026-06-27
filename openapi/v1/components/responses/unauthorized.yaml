@@ -1,0 +1,10 @@
+description: Unauthorized. Authentication is required or the token is invalid/expired.
+
+content:
+  application/json:
+    schema:
+      $ref: "../schemas/error.yaml"
+
+    example:
+      message: Unauthorized
+      code: UNAUTHORIZED

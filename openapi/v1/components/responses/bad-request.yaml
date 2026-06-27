@@ -1,0 +1,10 @@
+description: Bad Request. Something went wrong.
+
+content:
+  application/json:
+    schema:
+      $ref: "../schemas/error.yaml"
+
+    example:
+      message: BadRequest
+      code: BADREQUEST

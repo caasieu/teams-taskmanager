@@ -1,0 +1,22 @@
+type: object
+description: Authentication response.
+
+required:
+  - accessToken
+  - refreshToken
+  - expiresIn
+
+properties:
+
+  accessToken:
+    type: string
+    description: JWT access token.
+
+  refreshToken:
+    type: string
+    description: Refresh token used to obtain a new access token.
+ 
+  expiresIn:
+    type: integer
+    description: Access token lifetime in seconds.
+    example: 900

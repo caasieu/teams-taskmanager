@@ -1,0 +1,36 @@
+get:
+  summary: Get sprint by ID
+
+  operationId: getSprint
+
+  security:
+    - bearerAuth: []
+    
+  tags:
+    - Sprints
+
+  parameters:
+
+    - name: sprintId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+  responses:
+
+    "200":
+      description: Sprint details
+
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/sprint.yaml"
+
+    "404":
+      $ref: "../../../components/responses/not-found.yaml"
+
+    "401":
+      $ref: "../../../components/responses/unauthorized.yaml"
+

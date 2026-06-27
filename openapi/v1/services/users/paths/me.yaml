@@ -1,0 +1,77 @@
+get:
+  summary: Get current authenticated user
+
+  operationId: getCurrentUser
+
+  security:
+    - bearerAuth: []
+
+  tags:
+    - Users
+
+  responses:
+
+    "200":
+      description: Current user data
+
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/user.yaml"
+
+    "401":
+      $ref: "../../../components/responses/unauthorized.yaml"
+
+patch:
+  summary: Update current user profile
+
+  operationId: updateCurrentUser
+
+  security:
+    - bearerAuth: []
+
+  tags:
+    - Users
+
+  requestBody:
+    required: true
+
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/update-user-request.yaml"
+
+  responses:
+
+    "200":
+      description: User updated successfully
+
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/user.yaml"
+
+    "400":
+      $ref: "../../../components/responses/bad-request.yaml"
+
+    "401":
+      $ref: "../../../components/responses/unauthorized.yaml"
+
+delete:
+  summary: Delete current user account
+
+  operationId: deleteCurrentUser
+
+  security:
+    - bearerAuth: []
+
+  tags:
+    - Users
+
+  responses:
+
+    "204":
+      description: User deleted successfully
+
+    "401":
+      $ref: "../../../components/responses/unauthorized.yaml"

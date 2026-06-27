@@ -1,0 +1,12 @@
+type: object
+
+description: Logout request.
+
+required:
+  - refreshToken
+
+properties:
+
+  refreshToken:
+    type: string
+    description: Refresh token to revoke.

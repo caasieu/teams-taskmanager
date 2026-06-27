@@ -1,0 +1,21 @@
+post:
+  summary: Close sprint
+
+  operationId: closeSprint
+
+  security:
+    - bearerAuth: []
+    
+  tags:
+    - Sprints
+
+  parameters:
+
+    - name: sprintId
+      in: path
+      required: true
+
+  responses:
+
+    "200":
+      description: Sprint closed

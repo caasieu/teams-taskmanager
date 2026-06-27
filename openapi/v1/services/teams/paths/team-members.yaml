@@ -1,0 +1,69 @@
+get:
+  summary: Get team members by team ID
+
+  operationId: getTeamMembers
+
+  security:
+    - bearerAuth: []
+
+  tags:
+    - Teams
+
+  parameters:
+
+    - name: teamId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+  responses:
+
+    "200":
+      description: Team members data
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../schemas/team-member.yaml"
+
+    "401":
+      $ref: "../../../components/responses/unauthorized.yaml"
+
+
+post:
+  summary: Add member to team
+
+  operationId: addTeamMember
+
+  security:
+    - bearerAuth: []
+
+  tags:
+    - Teams
+
+  parameters:
+
+    - name: teamId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/team-member.yaml"
+
+  responses:
+
+    "200":
+      description: Member added successfully
+
+    "401":
+      $ref: "../../../components/responses/unauthorized.yaml"

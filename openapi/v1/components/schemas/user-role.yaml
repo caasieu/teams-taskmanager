@@ -1,0 +1,9 @@
+type: string
+
+description: User role within the Team.
+
+enum:
+  - OWNER
+  - MEMBER
+
+example: MEMBER

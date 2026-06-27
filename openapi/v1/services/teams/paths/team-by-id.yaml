@@ -1,0 +1,63 @@
+get:
+  summary: Get team by ID
+
+  operationId: getTeam
+
+  security:
+    - bearerAuth: []
+
+  tags:
+    - Teams
+
+  parameters:
+
+    - name: teamId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+  responses:
+
+    "200":
+      description: Team data
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/team.yaml"
+
+    "404":
+      $ref: "../../../components/responses/not-found.yaml"
+
+
+delete:
+  summary: Delete team
+
+  operationId: deleteTeam
+
+  security:
+    - bearerAuth: []
+
+  tags:
+    - Teams
+
+  parameters:
+
+    - name: teamId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+  responses:
+
+    "204":
+      description: Team deleted
+
+    "404":
+      $ref: "../../../components/responses/not-found.yaml"
+
+    "401":
+      $ref: "../../../components/responses/unauthorized.yaml"

@@ -1,0 +1,33 @@
+post:
+  summary: Signup a new user
+  operationId: signupUser
+
+  tags:
+    - Authentication
+
+  security: []   # public
+
+  requestBody:
+    required: true
+
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/auth-signup-request.yaml"
+
+  responses:
+    "201":
+      description: Signed Up
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/auth-signup-response.yaml"
+            
+    "400":
+      description: Bad Request
+
+    "401":
+      description: Unauthorized
+
+    "500":
+      description: Internal Server Error

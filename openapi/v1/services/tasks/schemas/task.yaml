@@ -1,0 +1,47 @@
+type: object
+
+required:
+  - id
+  - sprintId
+  - title
+  - status
+  - priority
+
+properties:
+
+  id:
+    type: string
+    format: uuid
+
+  sprintId:
+    type: string
+    format: uuid
+
+  assigneeId:
+    type: string
+    format: uuid
+    nullable: true
+
+  title:
+    type: string
+
+  description:
+    type: string
+
+  status:
+        $ref: "../../../components/schemas/task-status.yaml"
+
+  priority:
+    $ref: "../../../components/schemas/task-priority.yaml"
+
+  dueDate:
+    type: string
+    format: date
+
+  createdAt:
+    type: string
+    format: date-time
+
+  updatedAt:
+    type: string
+    format: date-time

@@ -1,0 +1,21 @@
+type: object
+
+description: Response returned after successful registration.
+
+required:
+  - message
+  - userId
+
+properties:
+
+  message:
+    type: string
+    example: User registered successfully.
+
+  userId:
+    type: string
+    format: uuid
+
+  createdAt:
+    type: string
+    format: date-time

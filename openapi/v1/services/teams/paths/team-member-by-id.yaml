@@ -1,0 +1,34 @@
+delete:
+  summary: Remove team member
+
+  operationId: removeTeamMember
+
+  security:
+    - bearerAuth: []
+
+  tags:
+    - Teams
+
+  parameters:
+
+    - name: teamId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+    - name: userId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+  responses:
+
+    "204":
+      description: Member removed
+
+    "401":
+      $ref: "../../../components/responses/unauthorized.yaml"

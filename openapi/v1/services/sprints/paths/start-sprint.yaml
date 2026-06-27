@@ -1,0 +1,28 @@
+post:
+  summary: Start sprint
+
+  operationId: startSprint
+
+  security:
+    - bearerAuth: []
+    
+  tags:
+    - Sprints
+
+  parameters:
+
+    - name: sprintId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+  responses:
+
+    "200":
+      description: Sprint started
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/sprint.yaml"

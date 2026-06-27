@@ -1,0 +1,10 @@
+description: Not Found. Couldn't find the content.
+
+content:
+  application/json:
+    schema:
+      $ref: "../schemas/error.yaml"
+
+    example:
+      message: NotFound
+      code: NOTFOUND

@@ -1,0 +1,83 @@
+get:
+  summary: List tasks
+
+  operationId: listTasks
+
+  security:
+    - bearerAuth: []
+
+  tags:
+    - Tasks
+
+  parameters:
+
+    - name: sprintId
+      in: query
+      required: false
+      schema:
+        type: string
+        format: uuid
+
+    - name: assigneeId
+      in: query
+      required: false
+      schema:
+        type: string
+        format: uuid
+
+    - name: status
+      in: query
+      required: false
+      schema:
+        $ref: '../../../components/schemas/task-status.yaml'
+
+  responses:
+
+    "200":
+      description: List of tasks
+
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../schemas/task.yaml"
+
+    "401":
+      $ref: "../../../components/responses/unauthorized.yaml"
+
+
+post:
+  summary: Create task
+
+  operationId: createTask
+
+  security:
+    - bearerAuth: []
+
+  tags:
+    - Tasks
+
+  requestBody:
+    required: true
+
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/create-task-request.yaml"
+
+  responses:
+
+    "201":
+      description: Task created
+
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/task.yaml"
+
+    "400":
+      $ref: "../../../components/responses/bad-request.yaml"
+
+    "401":
+      $ref: "../../../components/responses/unauthorized.yaml"

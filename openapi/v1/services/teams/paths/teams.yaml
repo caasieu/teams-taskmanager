@@ -1,0 +1,53 @@
+get:
+  summary: List teams of the authenticated user
+  
+  operationId: listTeams
+
+  security:
+    - bearerAuth: []
+
+  tags:
+    - Teams
+
+  responses:
+    "200":
+      description: List of teams
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: "../schemas/team.yaml"
+
+    "401":
+      $ref: "../../../components/responses/unauthorized.yaml"
+
+post:
+  summary: Create a new team
+
+  operationId: createTeam
+
+  security:
+    - bearerAuth: []
+
+  tags:
+    - Teams
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/create-team-request.yaml"
+
+  responses:
+
+    "201":
+      description: Team created
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/team.yaml"
+
+    "401":
+      $ref: "../../../components/responses/unauthorized.yaml" 

@@ -1,0 +1,26 @@
+type: object
+
+required:
+  - sprintId
+  - title
+
+properties:
+
+  sprintId:
+    type: string
+    format: uuid
+
+  title:
+    type: string
+    minLength: 3
+    maxLength: 100
+
+  description:
+    type: string
+
+  priority:
+    $ref: "../../../components/schemas/task-priority.yaml"
+
+  dueDate:
+    type: string
+    format: date

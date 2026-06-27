@@ -1,0 +1,112 @@
+get:
+  summary: Get task by ID
+
+  operationId: getTask
+
+  security:
+    - bearerAuth: []
+
+  tags:
+    - Tasks
+
+  parameters:
+
+    - name: taskId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+  responses:
+
+    "200":
+      description: Task details
+
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/task.yaml"
+
+    "404":
+      $ref: "../../../components/responses/not-found.yaml"
+
+    "401":
+      $ref: "../../../components/responses/unauthorized.yaml"
+
+
+patch:
+  summary: Update task
+
+  operationId: updateTask
+
+  security:
+    - bearerAuth: []
+
+  tags:
+    - Tasks
+
+  parameters:
+
+    - name: taskId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+  requestBody:
+    required: true
+
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/update-task-request.yaml"
+
+  responses:
+
+    "200":
+      description: Task updated
+
+      content:
+        application/json:
+          schema:
+            $ref: "../schemas/task.yaml"
+
+    "404":
+      $ref: "../../../components/responses/not-found.yaml"
+
+    "401":
+      $ref: "../../../components/responses/unauthorized.yaml"
+
+
+delete:
+  summary: Delete task
+
+  operationId: deleteTask
+
+  security:
+    - bearerAuth: []
+
+  tags:
+    - Tasks
+
+  parameters:
+
+    - name: taskId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+
+  responses:
+
+    "204":
+      description: Task deleted
+
+    "404":
+      $ref: "../../../components/responses/not-found.yaml"
+
+    "401":
+      $ref: "../../../components/responses/unauthorized.yaml"

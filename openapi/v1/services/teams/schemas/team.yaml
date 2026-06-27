@@ -1,0 +1,25 @@
+type: object
+
+required:
+  - id
+  - name
+  - ownerId
+
+properties:
+
+  id:
+    type: string
+    format: uuid
+
+  name:
+    type: string
+    minLength: 3
+    maxLength: 50
+
+  ownerId:
+    type: string
+    format: uuid
+
+  createdAt:
+    type: string
+    format: date-time

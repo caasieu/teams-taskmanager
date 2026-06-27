@@ -1,0 +1,10 @@
+type: string
+
+description: Task priority within the system.
+
+enum:
+  - LOW
+  - MEDIUM
+  - HIGH
+
+example: LOW

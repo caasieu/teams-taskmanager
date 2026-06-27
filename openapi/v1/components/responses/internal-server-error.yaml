@@ -1,0 +1,10 @@
+description: Internal server error. Something went wrong on the server.
+
+content:
+  application/json:
+    schema:
+      $ref: "../schemas/error.yaml"
+
+    example:
+      message: Internal server error
+      code: INTERNAL_SERVER_ERROR

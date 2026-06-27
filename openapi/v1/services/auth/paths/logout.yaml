@@ -1,0 +1,28 @@
+post:
+  summary: Log out the authenticated user
+  
+  operationId: logoutUser
+
+  security:
+    - bearerAuth: []
+
+  tags:
+    - Authentication
+
+  requestBody:
+    required: true
+
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/auth-logout-request.yaml"
+
+  responses:
+    "204":
+      description: User successfully logged out.
+
+    "401":
+      $ref: "../../../components/responses/unauthorized.yaml"
+
+    "500":
+      $ref: "../../../components/responses/internal-server-error.yaml"

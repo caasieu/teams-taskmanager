@@ -1,0 +1,30 @@
+post:
+  summary: Signin a user
+  operationId: signinUser 
+
+  tags:
+    - Authentication
+
+  security: []   # public
+
+  requestBody:
+    required: true
+    
+    content:
+      application/json:
+        schema:
+          $ref: "../schemas/auth-signin-request.yaml"
+
+  responses:
+    "204":
+      description: Signed In
+      content:
+        application/json: 
+          schema:
+            $ref: "../schemas/auth-signup-response.yaml"
+            
+    "401":
+      $ref: "../../../components/responses/unauthorized.yaml"
+
+    "500":
+      $ref: "../../../components/responses/internal-server-error.yaml"

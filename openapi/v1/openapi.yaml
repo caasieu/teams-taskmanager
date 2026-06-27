@@ -1,0 +1,94 @@
+openapi: 3.1.0
+
+info:
+  title: Scrum Sprintmanager API
+  version: 1.0.0
+  summary: Agile sprint and task management platform
+  description: |
+    Scrum Sprint Manager API allows teams to manage members,
+    sprints, tasks, and agile workflows.
+
+tags:
+  - name: Authentication
+    description: Authentication and session management
+  - name: Users
+    description: User profile management
+  - name: Teams
+    description: Team management operations
+  - name: Sprints
+    description: Sprint management operations
+  - name: Tasks
+    description: Task management operations
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      
+paths:
+  
+  /auth/signup:
+    $ref: "./services/auth/paths/signup.yaml"
+
+  /auth/signin:
+    $ref: "./services/auth/paths/signin.yaml"
+
+  /auth/logout:
+    $ref: "./services/auth/paths/logout.yaml"
+
+
+  /users:
+    $ref: "./services/users/paths/users.yaml"
+
+  /users/{userId}:
+    $ref: "./services/users/paths/user-by-id.yaml"
+  
+  /users/me:
+    $ref: "./services/users/paths/me.yaml"
+
+
+  /teams:
+    $ref: "./services/teams/paths/teams.yaml"
+
+  /teams/{teamId}:
+    $ref: "./services/teams/paths/team-by-id.yaml"
+  
+  /teams/{teamId}/members:
+    $ref: "./services/teams/paths/team-members.yaml"
+
+  /teams/{teamId}/members/{userId}:
+    $ref: "./services/teams/paths/team-member-by-id.yaml"
+
+  
+  /sprints:
+    $ref: "./services/sprints/paths/sprints.yaml"
+
+  /sprints/{sprintId}:
+    $ref: "./services/sprints/paths/sprint-by-id.yaml"
+  
+  /sprints/{sprintId}/start:
+    $ref: "./services/sprints/paths/start-sprint.yaml"
+
+  /sprints/{sprintId}/close:
+    $ref: "./services/sprints/paths/close-sprint.yaml"
+
+
+  /tasks:
+    $ref: "./services/tasks/paths/tasks.yaml"
+
+  /tasks/{taskId}:
+    $ref: "./services/tasks/paths/task-by-id.yaml"
+  
+  /tasks/{taskId}/status:
+    $ref: "./services/tasks/paths/task-status.yaml"
+
+  /tasks/{taskId}/assignee:
+    $ref: "./services/tasks/paths/task-assignee.yaml"
+
+
+
+
+
+

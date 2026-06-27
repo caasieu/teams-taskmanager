@@ -1,0 +1,27 @@
+type: object
+
+required:
+  - id
+  - name
+  - status
+  - teamId
+
+properties:
+
+  id:
+    type: string
+    format: uuid
+
+  name:
+    type: string
+
+  status:
+    type: string
+    enum:
+      - PLANNED
+      - ACTIVE
+      - CLOSED
+
+  teamId:
+    type: string
+    format: uuid
