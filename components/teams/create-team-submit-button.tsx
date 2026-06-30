@@ -2,7 +2,7 @@
 
 import { useFormStatus } from "react-dom";
 
-export function AuthSubmitButton({ label }: { label: string }) {
+export function CreateTeamSubmitButton({ label }: { label: string }) {
   const { pending } = useFormStatus();
 
   return (

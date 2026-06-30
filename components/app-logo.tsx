@@ -4,7 +4,7 @@ export function AppLogo() {
   return (
     <Link href={'/'}>
       <div>
-      <h1 className="font-semibold text-lg text-app-primary"> Tasko </h1>
+      <h1 className="font-semibold text-lg text-app-primary"> Sprinter </h1>
       </div>
     </Link>
   );

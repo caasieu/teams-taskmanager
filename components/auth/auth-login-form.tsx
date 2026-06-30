@@ -1,36 +1,47 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
 import { AuthInput } from "./auth-input";
+import { LoginFormData } from "@/types/auth/auth-form-data";
 import { AuthSubmitButton } from "./auth-submit-button";
+import { useRouter } from "next/navigation";
 
 export function AuthLoginForm() {
   const router = useRouter();
+  const { register, handleSubmit, reset } = useForm<LoginFormData>();
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    try {
-      e.preventDefault();
+  async function onSubmit(data: LoginFormData) {
+    const res = await fetch("/api/auth/signin", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
 
-      router.replace("/");
-    } catch (error) {
-      console.error(error);
+    if (res.ok) {
+      console.log(res);
+      reset();
+      router.push("/");
     }
   }
-
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="flex flex-col gap-2 w-full">
-        <div className="flex flex-col gap-2">
-          <AuthInput type="email" id="email" placeholder="E-mail" />
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="flex flex-col gap-2">
 
-          <AuthInput type="password" id="password" placeholder="Password" />
-        </div>
+        <AuthInput<LoginFormData>
+          name="email"
+          type="email"
+          placeholder="E-mail"
+          register={register}
+        />
 
-        <div className="flex flex-row items-center justify-between gap-3">
-          <div className="min-w-[10rem] w-full">
-            <AuthSubmitButton label="Let's get in!" />
-          </div>
-        </div>
+        <AuthInput<LoginFormData>
+          name="password"
+          type="password"
+          placeholder="Password"
+          register={register}
+        />
+
+        <AuthSubmitButton label="Let's get you in!" />
       </div>
     </form>
   );

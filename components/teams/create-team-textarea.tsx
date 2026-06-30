@@ -2,22 +2,20 @@
 
 import { FieldValues, Path, UseFormRegister } from "react-hook-form";
 
-export function AuthInput<T extends FieldValues>({
+export function CreateTeamTextarea<T extends FieldValues>({
   name,
-  type,
   placeholder,
   register,
 }: {
   name: Path<T>;
-  type: string;
   placeholder: string;
   register: UseFormRegister<T>;
 }) {
   return (
     <div className="bg-app-surface border-app-border border-1 rounded-sm">
-      <input
+      <textarea
         id={name}
-        type={type}
+        rows={6}
         placeholder={placeholder}
         className="w-full p-2"
         {...register(name)}

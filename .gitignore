@@ -43,3 +43,5 @@ next-env.d.ts
 # custom folders to ignore
 /documentation
 /app/generated/prisma
+
+/app/generated/prisma

@@ -1,56 +1,72 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
 import { AuthInput } from "./auth-input";
+import { AuthFormData } from "@/types/auth/auth-form-data";
 import { AuthSubmitButton } from "./auth-submit-button";
+import { useRouter } from "next/navigation";
 
 export function AuthRegisterForm() {
   const router = useRouter();
+  const { register, handleSubmit, reset } = useForm<AuthFormData>();
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    try {
-      e.preventDefault();
+  async function onSubmit(data: AuthFormData) {
+    const res = await fetch("/api/auth/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
 
-      router.push("/");
-    } catch (error) {
-      console.error(error);
+    if (res.ok) {
+      console.log("User created");
+      reset();
+      router.push("/auth/signin");
+    } else {
+      console.log("Error creating user");
     }
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="flex flex-col gap-2 w-full">
-        <div className="flex flex-col gap-2">
-          <AuthInput
-            type="username"
-            id="username"
-            placeholder="Username"
-          />
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="flex flex-col gap-2">
+        <AuthInput<AuthFormData>
+          name="firstName"
+          type="text"
+          placeholder="First Name"
+          register={register}
+        />
+        
+        <AuthInput<AuthFormData>
+          name="lastName"
+          type="text"
+          placeholder="Last Name"
+          register={register}
+        />
 
-          <AuthInput
-            type="email"
-            id="email"
-            placeholder="E-mail"
-          />
+        <AuthInput<AuthFormData>
+          name="username"
+          type="text"
+          placeholder="Username"
+          register={register}
+        />
 
-          <AuthInput
-            type="password"
-            id="password"
-            placeholder="Password"
-          />
+        <AuthInput<AuthFormData>
+          name="email"
+          type="email"
+          placeholder="E-mail"
+          register={register}
+        />
 
-          <AuthInput
-            type="password"
-            id="confirm_password"
-            placeholder="Confirm your password"
-          />
-        </div>
+        <AuthInput<AuthFormData>
+          name="password"
+          type="password"
+          placeholder="Password"
+          register={register}
+        />
 
-        <div className="flex flex-row items-center justify-between gap-3">
-          <div className="min-w-[10rem] w-full">
-            <AuthSubmitButton label="Sign me up!" />
-          </div>
-        </div>
+        <AuthSubmitButton label="Sign me up!" />
       </div>
     </form>
   );

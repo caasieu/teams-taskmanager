@@ -2,7 +2,7 @@
 
 import { FieldValues, Path, UseFormRegister } from "react-hook-form";
 
-export function AuthInput<T extends FieldValues>({
+export function CreateTeamInput<T extends FieldValues>({
   name,
   type,
   placeholder,
