@@ -1,0 +1,40 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  verify-project:
+    name: Build & Lint Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Install Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          # Caches pnpm metadata automatically to keep build workflow runtimes under 30 seconds
+          cache: 'pnpm'
+
+      - name: Install pnpm Package Manager
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Prisma Schema Sync & Validation
+        run: pnpm prisma validate
+
+      - name: Code Style Linter Check (ESLint)
+        run: pnpm lint
+
+      - name: Production Build Compilation
+        run: pnpm build
