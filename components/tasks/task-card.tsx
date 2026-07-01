@@ -1,4 +1,6 @@
+import { Task } from "@/types/task/task";
 import Link from "next/link";
+
 
 export function TaskCard() {
   return (

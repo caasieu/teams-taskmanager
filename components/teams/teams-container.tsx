@@ -1,6 +1,6 @@
 "use client";
 
-import { useTeams } from "@/lib/teams/use-team";
+import { useTeams } from "@/hooks/teams/use-team";
 import { AddNewButton } from "./add-new-button";
 import { TeamsListContent } from "./teams-list-content";
 import { useEffect } from "react";

@@ -20,7 +20,7 @@ properties:
     enum:
       - PLANNED
       - ACTIVE
-      - CLOSED
+      - COMPLETED
 
   teamId:
     type: string

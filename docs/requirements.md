@@ -7,36 +7,32 @@
 - Users can register an account.
 - Users can authenticate using identifier (email/username) and password.
 - Users can log out.
-- Users can update their profile information.
-- Users can delete their account.
 
 **Team Management**
 
-- Users can create teams.
-- Team owners can delete teams.
-- Users can add members to teams.
-- Users can remove members from teams.
-- Users can view team members.
-- Users can view team sprints.
+- Users can create teams. ✓
+- Team owners can delete teams. ✓
+- Team owners can add members to teams. ✓
+- Team owners can remove members from teams. ✓
+- Users can view team members. ✓
+- Users can view team sprints. ✓
 
 **Sprint Management**
 
-- Users can create sprints.
-- Users can edit sprint details.
-- Users can delete sprints.
-- Users can start and close sprints.
-- Users can view sprint progress.
+- Team Owners can create sprints. ✓
+- Team Owenrs can edit sprint details. ✓
+- Team Owners can delete sprints. ✓
+- Team Owners can start and close sprints. ✓
+- Users can view sprint progress. ✓
 
 **Task Management**
 
-- Users can create tasks.
-- Users can edit tasks.
-- Users can delete tasks.
-- Users can assign tasks to team members.
-- Users can update task status.
-- Users can set task priorities.
-- Users can add task descriptions.
-- Users can add due dates.
+- Team Owners can create tasks. ✓
+- Team Owners can edit tasks. ✓
+- Team Owners can delete tasks. ✓
+- Team Owners can update task status. ✓
+- Team Owners can set task priorities. ✓
+- Team Owners can add due dates. ✓
 
 ### **2. Non-Functional Requirements**
 

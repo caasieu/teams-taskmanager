@@ -1,28 +1,42 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-export function NavButton({ label, path }: { label: string; path: string }) {
-  const router = useRouter();
-  const pathname = usePathname(); // Reads the current active route
+interface NavButtonProps {
+  label: string;
+  path: string;
+}
 
-  // Check if the current route matches the button's path
-  const isActive = pathname === path;
+export function NavButton({ label, path }: NavButtonProps) {
+  const pathname = usePathname();
 
-  const goRoute = () => {
-    router.push(path);
-  };
+  // Checks if the current path matches the item exactly, or if it's a child route of this workspace
+  const isActive = pathname === path || pathname.startsWith(`${path}/`);
 
   return (
-    <div className="flex items-center gap-2 bg-app-surface border border-app-border rounded-sm">
-      <button
-        className={`flex items-center py-1.5 px-3 border-l-2 
-      ${isActive ? "border-app-primary" : "border-app-border"}
-      `}
-        onClick={goRoute}
-      >
-        <span> {label} </span>
-      </button>
-    </div>
+    <Link
+      href={path}
+      className={`group flex items-center justify-between w-full h-[1.8rem] px-2.5 rounded transition-all text-xs font-medium relative ${
+        isActive
+          ? "bg-app-primary/10 text-app-primary font-semibold"
+          : "text-gray-600 hover:text-gray-900 hover:bg-gray-50"
+      }`}
+    >
+      {/* Visual Workspace Indicator Pin */}
+      <div className="flex items-center gap-2 min-w-0">
+        <span className={`text-[11px] shrink-0 transition-transform group-hover:scale-110 ${
+          isActive ? "text-app-primary" : "text-gray-400 group-hover:text-gray-600"
+        }`}>
+          ⧉
+        </span>
+        <span className="truncate tracking-wide">{label}</span>
+      </div>
+
+      {/* Active State Indicator Dot */}
+      {isActive && (
+        <span className="h-1.5 w-1.5 rounded-full bg-app-primary animate-pulse shrink-0" />
+      )}
+    </Link>
   );
 }
