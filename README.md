@@ -72,8 +72,7 @@ pnpm dev
 ```
 The workspace environment will initialize automatically and become accessible locally at `http://localhost:3000`.
 
-
----
+--- 
 
 ## 🧹 Cache Maintenance & Housekeeping
 If your local Next.js development server exhibits performance degradation or filesystem cache bottlenecks due to system asset Hot Module Replacement (HMR) indexing loops:
