@@ -58,7 +58,6 @@ export function AuthLoginForm() {
       setIsSubmitting(false);
     }
   }
-
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-full">
       <div className="flex flex-col gap-2">
